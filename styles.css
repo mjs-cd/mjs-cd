@@ -1,0 +1,266 @@
+    :root{
+      --bg: #0a0a0a;               /* default dark */
+      --fg: #e8ecef;               /* default text */
+      --muted: #a8b0b8;
+      --card: #101214;
+      --border-speed: 6s;          /* speed for animated border */
+      --green1: #0bb36dc2;           /* green gradient for 7‑day window + hover */
+      --green2: #2d8058;
+      --green3: #085c35;
+      --red1: #d7263d;             /* 24h panic mode */
+      --red2: #ff4747;
+      --red3: #b1001a;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+   font-family: 'Urbanist', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, #182027 0%, var(--bg) 60%);
+      color: var(--fg);
+      display:grid;
+      place-items:center;
+      gap:24px;
+    }
+
+    /* Center box with animated gradient outline */
+    .wrap{
+      width:min(1100px, 92vw);
+      background: var(--card);
+      border-radius: 24px;
+      padding: clamp(18px, 2.4vw, 28px);
+      position: relative;
+      isolation:isolate; /* keep pseudo behind contents */
+    }
+    .wrap::before{
+      /* animated gradient outline */
+      content:"";
+      position:absolute; inset:0;
+      padding:2px; border-radius: 26px;
+      background: linear-gradient(270deg, #a3ff3a, #5cff6a, #48e577, #2a9c2a, #3c753c, #0b532b);
+      background-size: 400% 400%;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; /* safari */
+              mask-composite: exclude; /* others */
+      animation: gradientShift var(--border-speed) linear infinite;
+      z-index:-1;
+    }
+    @keyframes gradientShift{
+      0%{background-position:0% 50%}
+      100%{background-position:100% 50%}
+    }
+
+    .inner{
+      display:grid;
+      grid-template-columns: 1fr auto; /* text | logo */
+      align-items:center;
+      gap: clamp(16px, 3vw, 28px);
+    }
+
+    /* Big bulky heading */
+    .countdown{
+      line-height: 1.05;
+      font-weight: 900;
+      font-stretch: 110%;
+      font-size: clamp(28px, 6.5vw, 72px);
+  margin-bottom: 6px;   /* less bottom margin */
+      letter-spacing: -0.02em;
+      margin: 4px 0 8px;
+      transition: background-position 800ms ease, color 200ms ease, transform 120ms ease;
+      background-image: linear-gradient(120deg, var(--fg), var(--fg));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent; /* reveal gradient */
+      background-size: 200% 200%;
+      background-position: 50% 50%;
+      cursor: default;
+    }
+    .countdown:hover{
+      /* default hover shimmer (outside the 7‑day window it turns green on hover) */
+      background-image: linear-gradient(120deg, var(--green1), var(--green2), var(--green3));
+      background-position: 0% 50%;
+      animation: shimmer 1.75s linear infinite;
+    }
+    @keyframes shimmer{
+      0%{background-position:0% 50%}
+      100%{background-position:200% 50%}
+    }
+
+    .subtitle{
+   font-size: clamp(12px, 1.8vw, 16px);
+  margin-bottom: 16px;  /* add spacing before button */
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    /* CTA button with moving green gradient */
+.cta{
+  --glow: rgba(16, 185, 129, .35);
+  display: inline-flex;
+  align-items: center;
+    margin-top: 10px;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0b1e14;
+  background: linear-gradient(90deg, var(--green1), var(--green2), var(--green3), var(--green2));
+  background-size: 300% 100%;
+  animation: ctaGradient 2.2s linear infinite;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0), 0 8px 26px -12px var(--glow);
+  transition: transform .12s ease, box-shadow .2s ease;
+}
+@keyframes ctaGradient{
+  0%{ background-position: 0% 50%;}
+  100%{ background-position: 200% 50%;}
+}
+
+.cta .icon{
+  display:inline-flex;
+  translate: 0 0;
+  transition: translate .18s ease, opacity .18s ease;
+  opacity: .9;
+}
+
+/* Hover: nudge the icon and add a subtle glow, text color stays readable */
+.cta:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(255,255,255,.06) inset, 0 10px 28px -10px var(--glow);
+}
+.cta:hover .icon{
+  translate: 4px 0;
+}
+
+/* Fun little “download jiggle” while hovering */
+.cta:hover .icon svg{
+  animation: jiggle .7s ease-in-out infinite;
+}
+@keyframes jiggle{
+  0%,100%{ transform: translateX(0); }
+  50%{ transform: translateX(2px); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .cta{ animation: none; }
+  .cta:hover .icon svg{ animation: none; }
+}
+
+/* Panic mode: keep button visible but harmonize with red theme */
+.panic .cta{
+  color: #2a070a;
+  --glow: rgba(231, 76, 60, .35);
+  background: linear-gradient(90deg, var(--red2), var(--red1), var(--red3), var(--red1));
+  background-size: 300% 100%;
+}
+
+
+    /* Logo */
+    .logo{
+   width: clamp(140px, 28vw, 320px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+      user-select:none;
+      pointer-events:none;
+    }
+
+    /* Responsive: stack on narrow screens */
+    @media (max-width: 720px){
+      .inner{ grid-template-columns: 1fr; }
+      .logo{ justify-self:center; }
+      .countdown{ text-align:center; }
+      .subtitle{ text-align:center; }
+    }
+
+    /* 7-day window styles: heading is green gradient STATIC; on hover it moves */
+    .seven-day .countdown{
+      background-image: linear-gradient(120deg, var(--green1), var(--green2), var(--green3));
+      background-size: 200% 200%;
+      background-position: 50% 50%;
+    }
+    .seven-day .countdown:hover{ animation: shimmer 1.3s linear infinite; }
+
+    /* 24h panic mode: page + countdown turn red */
+    .panic{
+      --bg: #120507;
+      --fg: #fff4f5;
+      --muted: #ffd1d6;
+      background: radial-gradient(1000px 700px at 70% 20%, #3a0a12 0%, var(--bg) 65%);
+    }
+    .panic .wrap::before{ 
+      background: linear-gradient(270deg, var(--red2), var(--red1), var(--red3), var(--red2));
+      background-size: 400% 400%;
+      animation: gradientShift var(--border-speed) linear infinite;
+    }
+    .panic .countdown{
+      background-image: linear-gradient(120deg, var(--red2), var(--red1), var(--red3));
+    }
+    .panic .countdown:hover{ animation: shimmer 1.15s linear infinite; }
+
+    footer{
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    /* --- Mobile enhancements --- */
+@media (max-width: 900px){
+  body{
+    padding: 12px;
+  }
+  .wrap{
+    width: 100%;
+    padding: 18px 16px;
+    border-radius: 20px;
+  }
+  .wrap::before{
+    border-radius: 22px;
+  }
+  .inner{
+    grid-template-columns: 1fr;    /* stack text over logo */
+    gap: 16px;
+  }
+  .logo{
+    width: min(55vw, 220px);       /* scale logo down on phones */
+    justify-self: center;
+  }
+  .countdown{
+    font-size: clamp(28px, 12vw, 64px);
+    text-align: center;
+  }
+  .subtitle{
+    font-size: clamp(13px, 4vw, 18px);
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px){
+  .wrap{
+    border-radius: 16px;
+  }
+  .wrap::before{
+    border-radius: 18px;
+  }
+  .countdown{
+    letter-spacing: -0.01em;
+  }
+  footer{
+    font-size: 12px;
+  }
+}
+
+/* Respect notches/safe areas (iOS/Android) */
+@supports (padding: max(0px)) {
+  body{
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
