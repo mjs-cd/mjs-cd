@@ -303,3 +303,13 @@ section { text-align: center; }
     padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 }
+
+/* FOOTER SECRET */
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--green1);
+  text-decoration: underline;
+}
