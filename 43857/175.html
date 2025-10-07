@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MJS 2.0</title>
+  <link rel="shortcut icon" href="/43857/mjs-2.0-logo-light.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/43857/175styles.css">
+  <script src="/43857/175script.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="glass" onclick="toggleMobileMenu()">
+    <div class="nav-content">
+      <div class="logo-container">
+        <img src="/43857/mjs-2.0-logo-light.png" alt="MJS 2.0 Logo" class="logo-img">
+        <div class="brand">MJS 2.0</div>
+      </div>
+      <div class="nav-links">
+        <button onclick="scrollToSection('updates')" class="nav-btn active" data-section="updates">Updates</button>
+        <button onclick="scrollToSection('files')" class="nav-btn" data-section="files">Files</button>
+        <button onclick="scrollToSection('tasks')" class="nav-btn" data-section="tasks">Tasks</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="scrollToSection('updates'); toggleMobileMenu();">Updates</button>
+    <button onclick="scrollToSection('files'); toggleMobileMenu();">Files</button>
+    <button onclick="scrollToSection('tasks'); toggleMobileMenu();">Tasks</button>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="deco-1"></div>
+  <div class="deco-2"></div>
+
+  <div class="container">
+
+
+<!-- Updates Section -->
+    <section id="updates">
+      <div class="section-header">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <h2 class="section-title">Updates</h2>
+      </div>
+
+      <!-- Recent Updates (Most Recent 3) -->
+      <div class="update-card">
+        <div class="update-header">
+          <h3 class="update-title">MJS 2.0 Group Website</h3>
+          <span class="update-date">Oct 7, 2025</span>
+        </div>
+        <p class="update-content">Developed and created, with different features such as; Updates, Files, Tasks, Glass morphism AND MJS 2.0 Logo. Logo approved by the Leaders of the group.</p>
+      </div>
+
+      <div class="update-card">
+        <div class="update-header">
+          <h3 class="update-title">Project Proposal to the Technical Team</h3>
+          <span class="update-date">Oct 6, 2025</span>
+        </div>
+        <p class="update-content">The submission of the project proposal to the Technical Team of MindSpark has been completed by the leaders of the group. The proposal composed of names of the team, abstract (short brief about the project) and resources we need.</p>
+      </div>
+
+      <div class="update-card">
+        <div class="update-header">
+          <h3 class="update-title">Official Commencement of Project Activities</h3>
+          <span class="update-date">Oct 1, 2025</span>
+        </div>
+        <p class="update-content">We started the official project works today, and distributed tasks across our members of the group.</p>
+      </div>
+
+      <!-- View More Button -->
+      <div class="view-more-container">
+        <button class="view-more-btn" onclick="toggleOlderUpdates()">
+          <span id="viewMoreText">View More Updates</span>
+          <svg class="view-more-icon" id="viewMoreIcon" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Older Updates (Collapsible) -->
+      <div class="older-updates" id="olderUpdates">
+        <div class="update-card">
+          <div class="update-header">
+            <h3 class="update-title">Initial Team Formation</h3>
+            <span class="update-date">Sep 28, 2025</span>
+          </div>
+          <p class="update-content">MJS 2.0 team officially formed with 7 members. Leadership roles assigned to Mish'al and Dhanish.</p>
+        </div>
+
+        <div class="update-card">
+          <div class="update-header">
+            <h3 class="update-title">Project Brainstorming Session</h3>
+            <span class="update-date">Sep 25, 2025</span>
+          </div>
+          <p class="update-content">Team conducted initial brainstorming session to identify potential project ideas and scope.</p>
+        </div>
+
+        <div class="update-card">
+          <div class="update-header">
+            <h3 class="update-title">MindSpark Registration</h3>
+            <span class="update-date">Sep 20, 2025</span>
+          </div>
+          <p class="update-content">Successfully registered for MindSpark competition. Awaiting project proposal guidelines.</p>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-card">
+        <div class="team-header">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <h3>Team Members</h3>
+        </div>
+        <div class="members">
+            <span id="RASH">Rash Miss (Mentor)</span>
+          <span class="member-tag">Mish'al (Leader)</span>
+          <span class="member-tag">Dhanish (Asst. Leader)</span>
+          <span class="member-tag">Eeva</span>
+          <span class="member-tag">Zeek</span>
+          <span class="member-tag">Athfa</span>
+          <span class="member-tag">Thooma</span>
+          <span class="member-tag">Akmal</span>
+        </div>
+      </div>
+    </section>
+
+ <!-- Files Section -->
+    <section id="files">
+      <div class="section-header">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <h2 class="section-title">Resources</h2>
+      </div>
+
+      <!-- Design Assets -->
+      <div class="file-category">
+        <div class="category-header" onclick="toggleFiles(1)">
+          <span class="category-name">Design Assets</span>
+          <svg class="chevron" id="chevron-1" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="files-list" id="files-1">
+          <div class="file-item">
+            <div class="file-info">
+              <a href="/43857/files/Logos Display.pdf" target="_blank" class="file-name">Logos Display.pdf</a>
+              <span class="file-date">Oct 7, 2025</span>
+            </div>
+            <div class="file-actions">
+              <a href="/43857/files/Logos Display.pdf" download class="download-btn">
+                <svg class="download-icon" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documentation -->
+      <div class="file-category">
+        <div class="category-header" onclick="toggleFiles(2)">
+          <span class="category-name">Documentation</span>
+          <svg class="chevron" id="chevron-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="files-list" id="files-2">
+                    <div class="file-item">
+            <div class="file-info">
+              <a href="/43857/files/Guidelines for the MindSpark Fair 2025.pdf" target="_blank" class="file-name">MindSpark Guidelines.pdf</a>
+              <span class="file-date">Sep 30, 2025</span>
+            </div>
+            <div class="file-actions">
+              <a href="/43857/files/Guidelines for the MindSpark Fair 2025.pdf" download class="download-btn">
+                <svg class="download-icon" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="file-item">
+            <div class="file-info">
+              <a href="/43857/files/data-sheet.docx" target="_blank" class="file-name">Data Sheet.docx</a>
+              <span class="file-date">Oct 7, 2025</span>
+            </div>
+            <div class="file-actions">
+              <a href="/43857/files/data-sheet.docx" download class="download-btn">
+                <svg class="download-icon" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download
+              </a>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Development -->
+      <div class="file-category">
+        <div class="category-header" onclick="toggleFiles(3)">
+          <span class="category-name">Development</span>
+          <svg class="chevron" id="chevron-3" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="files-list" id="files-3">
+          <div class="file-item">
+            <div class="file-info">
+              <a href="" target="_blank" class="file-name">None as of</a>
+              <span class="file-date">Oct 7, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section id="tasks">
+      <div class="section-header">
+        <svg class="icon" viewBox="0 0 24 24">
+          <polyline points="9 11 12 14 22 4"></polyline>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        <h2 class="section-title">Tasks</h2>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Overseeing all tasks of the Team</h3>
+            <p class="task-assignee">Assigned to: Mish'al</p>
+          </div>
+          <span class="status-badge status-progress">In Progress</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Coding and developing the website structure</h3>
+            <p class="task-assignee">Assigned to: Mish'al</p>
+          </div>
+          <span class="status-badge status-completed">Completed</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Design the website's UI/UX </h3>
+            <p class="task-assignee">Assigned to: Dhanish</p>
+          </div>
+          <span class="status-badge status-progress">In Progress</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Collect data for the website</h3>
+            <p class="task-assignee">Assigned to: Eeva & Athfa</p>
+          </div>
+          <span class="status-badge status-completed">Completed</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Prepare presentation slides</h3>
+            <p class="task-assignee">Assigned to: Eeva, Athfa, Thooma</p>
+          </div>
+          <span class="status-badge status-pending">Pending</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Create the board for the fair</h3>
+            <p class="task-assignee">Assigned to: Team</p>
+          </div>
+          <span class="status-badge status-pending">Pending</span>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="task-content">
+          <div class="task-info">
+            <h3>Help with data collection</h3>
+            <p class="task-assignee">Assigned to: Akmal</p>
+          </div>
+          <span class="status-badge status-completed">Completed</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>MJS 2.0 © 2025 - Kyuzegs INC.</p>
+  </footer>
+</body>
+</body>
+</html>
