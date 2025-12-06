@@ -1,8 +1,5 @@
     // TARGET: 28 January 2026 00:00:00 local time IGCSE VERSION
-   // const target = new Date(2026, 0, 28, 0, 0, 0); // months are 0-based
-
-   // 7 December 2025, 00:00 local time MOCK ACTIVE:
-const target = new Date(2025, 11, 7, 0, 0, 0);
+const target = new Date(2026, 0, 28, 0, 0, 0); // months are 0-based
 
 
     const countEl = document.getElementById('count');
@@ -55,3 +52,4 @@ const target = new Date(2025, 11, 7, 0, 0, 0);
     }
     applyMotionPref();
     mq.addEventListener?.('change', applyMotionPref);
+
